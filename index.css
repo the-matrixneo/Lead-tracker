@@ -10,7 +10,6 @@ label{
 
 }
 
-
 input {
     width: 100%;
     padding-left: 10px;
@@ -37,7 +36,7 @@ button {
   color : #5f9341;
   border : 1px solid #5f9341}
   
-  ul {
+ ul {
   margin-top: 5px;
 
 }
@@ -50,5 +49,4 @@ li{
 /* only target anchor tag inside li tag */
  a{ 
   color: #5f9341;
-
 }

@@ -34,10 +34,7 @@ const deletebtn = document.getElementById("delete-btn")
            <a target = '_blank' href =' ${myLeads[i]}' > ${myLeads[i]} 
            </a>
            </li>`
-           console.log(listItems)
-          
-       
-       }
+           }
        ulEl.innerHTML = listItems
        
            }
@@ -53,8 +50,7 @@ const deletebtn = document.getElementById("delete-btn")
   deletebtn.addEventListener("dbclick" , function(){
     remove(refrenceInDB) //remove the data from the database
    inner.html = "" // manually clear the list
-
-   })
+    })
     
  
 //localStorage.setItem("Leads","ul-el") //localstorage.setItem("key","value")
@@ -64,6 +60,4 @@ const deletebtn = document.getElementById("delete-btn")
 inputBtn.addEventListener("click", function() {
    push(refrenceInDB, inputEl.value )// push to database
     inputEl.value = "" // clear input field
-   
-    
-})
+   })
