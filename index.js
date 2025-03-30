@@ -1,52 +1,65 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"
-import { getDatabase,
-         ref,
-         push,
-         onValue,
-         remove } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js"
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+import { getDatabase ,
+ref ,
+push ,
+onValue,
+remove
+} from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
 const firebaseConfig = {
-    databaseURL: "https://leads-tracker-app-default-rtdb.europe-west1.firebasedatabase.app/"
+datebaseURL : "https://leads-tracker-app-2675f-default-rtdb.asia-southeast1.firebasedatabase.app/"
 }
-
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
-const referenceInDB = ref(database, "leads")
+const refrenceInDB = ref(database , "leads")
 
-const inputEl = document.getElementById("input-el")
+const inputEl = document.getElementById("Input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
-const deleteBtn = document.getElementById("delete-btn")
+const deletebtn = document.getElementById("delete-btn")
 
-function render(leads) {
+//myLeads = JSON.parse(localStorage.getItem(myLeads)) //convert string into array
+//myLeads.push](https://myleads.push/)("[www.epiclead.com](http://www.epiclead.com/)") //  add new array
+//myLeads = JSON.stringify(localStorage.getItem(myLeads))/ //array into sting /add new item to array
+
+
+//chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+
+    function render( leads){
     let listItems = ""
-    for (let i = 0; i < leads.length; i++) {
-        listItems += `
-            <li>
-                <a target='_blank' href='${leads[i]}'>
-                    ${leads[i]}
-                </a>
-            </li>
-        `
-    }
-    ulEl.innerHTML = listItems
-}
+   for (let i = 0; i < leads.length; i++) {
+      // listItems += "<li><a target = '_blank'  href = ' " + myLeads[i] + " '>" + myLeads[i] + "</a></li>"
+       //console.log(listItems)
+       listItems += `
+       <li>
+       <a target = '_blank' href =' ${myLeads[i]}' > ${myLeads[i]}
+       </a>
+       </li>`
+       }
+   ulEl.innerHTML = listItems
 
-onValue(referenceInDB, function(snapshot) {
-    const snapshotDoesExist = snapshot.exists()
-    if (snapshotDoesExist) {
-        const snapshotValues = snapshot.val()
-        const leads = Object.values(snapshotValues)
-        render(leads)
-    }
+       }
+     onValue(refrenceInDB , function(snapshot){
+        const snapshotDoesExist = snapshot.exists()
+        if(snapshotDoesExist){
+            const snapshotValues = snapshot.val() //logs the "name" of the property
+            const leads = Object.values(snapshotValues)
+            render(leads)
+        }
+
+ })
+
+
+
+deletebtn.addEventListener("dbclick" , function(){
+remove(refrenceInDB) //remove the data from the database
+inner.html = "" // manually clear the list
 })
 
-deleteBtn.addEventListener("dblclick", function() {
-    remove(referenceInDB)
-    ulEl.innerHTML = ""
-})
+//localStorage.setItem](https://localstorage.setitem/)("Leads","ul-el") [//localstorage.setItem](https://localstorage.setitem/)("key","value")
+//localStorage.getItem](https://localstorage.getitem/)("Leads") [//localstorage.getvalue](https://localstorage.getvalue/)("key") --string
+//localStorage.clear](https://localstorage.clear/)() [//localstorage.clear](https://localstorage.clear/)() to clear the local storage
 
 inputBtn.addEventListener("click", function() {
-    push(referenceInDB, inputEl.value)
-    inputEl.value = "" 
+push(refrenceInDB, inputEl.value )// push to database
+inputEl.value = "" // clear input field
 })
