@@ -58,7 +58,7 @@ const deletebtn = document.getElementById("delete-btn")
 
 deletebtn.addEventListener("dblclick" , function(){
 remove(refrenceInDB) //remove the data from the database
-ulEl.innerHtml = "" // manually clear the list
+ulEl.innerHTML = "" // manually clear the list
 })
 
 //localStorage.setItem](https://localstorage.setitem/)("Leads","ul-el") [//localstorage.setItem](https://localstorage.setitem/)("key","value")
