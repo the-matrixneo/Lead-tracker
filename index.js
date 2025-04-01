@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 const refrenceInDB = ref(database , "leads")
 
-const inputEl = document.getElementById("Input-el")
+const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
 const deletebtn = document.getElementById("delete-btn")
@@ -56,7 +56,7 @@ const deletebtn = document.getElementById("delete-btn")
 
 
 
-deletebtn.addEventListener("dbclick" , function(){
+deletebtn.addEventListener("dblclick" , function(){
 remove(refrenceInDB) //remove the data from the database
 inner.html = "" // manually clear the list
 })
