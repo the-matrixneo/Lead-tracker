@@ -6,13 +6,13 @@ onValue,
 remove
 } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
 const firebaseConfig = {
-    apiKey: "AIzaSyAnyMRirbAtrvDW3WrL35ysN_aRjfb6QfQ",
+    apiKey: "////////",
     authDomain: "leads-tracker-app-2675f.firebaseapp.com",
     databaseURL: "https://leads-tracker-app-2675f-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "leads-tracker-app-2675f",
     storageBucket: "leads-tracker-app-2675f.firebasestorage.app",
     messagingSenderId: "358402634943",
-    appId: "1:358402634943:web:cb71eb00e2b8da0e27820a"
+    appId: "///////////////////////"
   };
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
